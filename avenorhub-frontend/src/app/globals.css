@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Page background */
+  --color-page: #F3F4F6;
+  --color-page-dark: #111111;
+
+  /* Card / surface */
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #202124;
+
+  /* Borders */
+  --color-border: #E5E7EB;
+  --color-border-dark: #1f2937;
+
+  /* Primary accent — Teal */
+  --color-teal-accent: #0F766E;
+
+  /* Secondary accent — Teal */
+  --color-secondary-accent: #0F766E;
+
+  /* Status */
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  select {
+    min-width: 0;
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 767px) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    select,
+    textarea {
+      min-height: 44px;
+      font-size: 16px !important;
+    }
+
+    button:not([data-compact]) {
+      min-height: 44px;
+    }
+
+    table {
+      min-width: 36rem;
+    }
+  }
+
+  body {
+    background-color: var(--color-page);
+    color: #111827;
+  }
+
+  html.dark body {
+    background-color: var(--color-page-dark);
+    color: #F9FAFB;
+  }
+}
